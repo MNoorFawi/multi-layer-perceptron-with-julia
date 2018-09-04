@@ -1,7 +1,7 @@
 Multi-Layer Perceptron
 ================
 
-Multi-layer perceptron (MLP) with JULIA
+[Multi-layer perceptron (MLP) with JULIA](https://github.com/MNoorFawi/multi-layer-perceptron-with-julia)
 ---------------------------------------
 
 A multi-layer perceptron, i.e. a fully connected feed-forward deep neural network, is basically a bunch of linear regression models stuck together with non-linearities in between connecting multiple layers in a directed graph, which means that the signal passes through the nodes in one direction. Each layer requires its own set of parameters and feeds in to the layer above it, until we generate an output. We calculate the value of each layer by first applying a linear function to the acivatiosn of the layer below, and then applying an element-wise nonlinear activation function. Finally, with the final hidden layer, we'll generate an output ...
