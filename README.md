@@ -92,9 +92,9 @@ Now as the model is defined, we need to train it. First we randomly initialize t
 # (3 layers, 54 inputs => 96 units => 64 units => 32 units => 7 outputs)
 w = map(Array{Float32},
         Any[ 0.1f0*randn(96, size(xtrain, 1)), zeros(Float32, 96, 1),
-               0.1f0*randn(64, 96), zeros(Float32, 64, 1),
-               0.1f0*randn(32, 64), zeros(Float32, 32, 1),
-           0.1f0*randn(7, 32),  zeros(Float32, 7, 1) ]);
+             0.1f0*randn(64, 96), zeros(Float32, 64, 1),
+             0.1f0*randn(32, 64), zeros(Float32, 32, 1),
+             0.1f0*randn(7, 32),  zeros(Float32, 7, 1) ]);
 
 # model optimizer
 o = optimizers(w, Adam); # o =  optimizers(w, Sgd;  lr=0.01);
@@ -110,7 +110,7 @@ tsterror = [];
 
 Finally we run the model printing the results.
 
-###### This can take a few minutes because it does so many work in each step it calculates accuracy, loss and error for both train and test and they're more than a half a million record ...
+###### This can take a minute or something because it does so many work in each step it calculates accuracy, loss and error for both train and test and they're more than a half a million record ...
 
 ``` julia
 println((:epoch, 0, :train_accuracy, accuracy(w, btrain, predict), :test_accuracy, accuracy(w, btest, predict)))
@@ -128,7 +128,7 @@ end
 # ...
 # (:epoch, 5, :train_accuracy, 0.8048154522853318, :test_accuracy, 0.8048020654044751)
 # ...
-# (:epoch, 10, :train_accuracy, 0.835922738573341, :test_accuracy, 0.8350602409638554)
+# (:epoch, 10, :train_accuracy, 0.845922738573341, :test_accuracy, 0.8450602409638554)
 ```
 
 We can still further improve the model but we now have nice results ... Let's check the loss and error in the train and test datasets .
