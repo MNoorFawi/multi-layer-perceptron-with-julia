@@ -82,9 +82,9 @@ end;
 # initial weights (3 layers, 54 inputs => 96 units => 64 units => 32 units => 7 outputs)
 w = map(Array{Float32},
 	Any[ 0.1f0*randn(96, size(xtrain, 1)), zeros(Float32, 96, 1),
-		0.1f0*randn(64, 96), zeros(Float32, 64, 1),
-		0.1f0*randn(32, 64), zeros(Float32, 32, 1),
-        0.1f0*randn(7, 32),  zeros(Float32, 7, 1) ]);
+	     0.1f0*randn(64, 96), zeros(Float32, 64, 1),
+	     0.1f0*randn(32, 64), zeros(Float32, 32, 1),
+             0.1f0*randn(7, 32),  zeros(Float32, 7, 1) ]);
 
 # define model optimizer
 o = optimizers(w, Adam); # o =  optimizers(w, Sgd;  lr=0.01);
@@ -94,7 +94,7 @@ tstloss = [];
 trnerror = [];
 tsterror = [];
 
-# run the model printing the results, This can take a few minutes because it does so many work in each step
+# run the model printing the results, This can take a minute or something because it does so many work in each step
 # it calculates accuracy, loss and error for both train and test and they're more than a half a million record
 println((:epoch, 0, :train_accuracy, accuracy(w, btrain, predict), :test_accuracy, accuracy(w, btest, predict)))
 for epoch in 1:10
@@ -110,7 +110,7 @@ end
 plot([trnloss tstloss], ylim=(0.2, 0.7),
 	labels = [:training_loss :test_loss], xlabel = "Epochs", ylabel = "Loss")
 # plot train error and test error	
-plot([trnerror tsterror], ylim = (.0, .4),
+plot([trnerror tsterror], ylim = (0.0, 0.4),
 	labels = [:training_error :test_error], xlabel = "Epochs", ylabel = "Error")
 
 # a way to predict new values and check accuracy manually	
