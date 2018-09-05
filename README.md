@@ -12,6 +12,8 @@ Here we're going to use **Julia** programming languge and its **Knet** package t
 
 ###### The data can be downloaded from <https://archive.ics.uci.edu/ml/machine-learning-databases/covtype/>
 
+###### N.B. we'll be using Julia version 0.6.4
+
 ``` julia
 # we first import the libraries to be used
 using Knet, Plots, DataFrames, GZip
