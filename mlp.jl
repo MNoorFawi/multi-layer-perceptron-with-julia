@@ -59,11 +59,12 @@ btrain = minibatch(xtrain, ytrain, 100); # xtype = KnetArray{Float32}
 length(btrain), length(btest)
 
 # define predict, loss, and train function of the model
-function predict(w, x)
+function predict(w, x) #predict(w, x; p = 0) to have a dropout layer
     for i in 1:2:length(w)
         x = w[i] * x .+ w[i+1]
         if i < length(w)-1
-            x = max.(0, x)                         
+            x = max.(0, x)
+	    # x = dropout(x, p) the dropout layer
         end
     end
     return x
