@@ -104,7 +104,9 @@ for epoch in 1:10
 	append!(tstloss, nll(w, btest, predict))
 	append!(trnerror, 1-accuracy(w, btrain, predict))
 	append!(tsterror, 1-accuracy(w, btest, predict))
-    println((:epoch, epoch, :train_accuracy, accuracy(w, btrain, predict), :test_accuracy, accuracy(w, btest, predict)))
+    println((:epoch, epoch, :train_accuracy, 1-trnerror[epoch], :test_accuracy, 1-tsterror[epoch]))
+    # to calculate only accuracy 	
+    # println((:epoch, epoch, :train_accuracy, accuracy(w, btrain, predict), :test_accuracy, accuracy(w, btest, predict)))
 end
 
 # plot train loss and test loss
