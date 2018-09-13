@@ -82,10 +82,10 @@ end;
 
 # initial weights (3 layers, 54 inputs => 96 units => 64 units => 32 units => 7 outputs)
 w = map(Array{Float32},
-	Any[ 0.1f0*randn(96, size(xtrain, 1)), zeros(Float32, 96, 1),
-	     0.1f0*randn(64, 96), zeros(Float32, 64, 1),
-	     0.1f0*randn(32, 64), zeros(Float32, 32, 1),
-             0.1f0*randn(7, 32),  zeros(Float32, 7, 1) ]);
+	Any[ 0.1f0*randn(96, size(xtrain, 1)), zeros(96, 1),
+	     0.1f0*randn(64, 96), zeros(64, 1),
+	     0.1f0*randn(32, 64), zeros(32, 1),
+             0.1f0*randn(7, 32),  zeros(7, 1) ]);
 
 # define model optimizer
 o = optimizers(w, Adam); # o =  optimizers(w, Sgd;  lr=0.01);
